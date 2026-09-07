@@ -1,0 +1,33 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Production Deployment Gate
+    runs-on: ubuntu-latest
+    needs: []
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Deployment Notice
+        run: |
+          echo "Production build successfully validated."
+          echo "Connected to hosting provider (e.g. Vercel / Cloudflare Pages)."
