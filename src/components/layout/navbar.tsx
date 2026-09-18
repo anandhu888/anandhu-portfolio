@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, FileDown, Terminal, Sparkles, Mail } from 'lucide-react';
+import { Menu, X, FileDown, Terminal, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '@/data/resume-data';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/social-icons';
 
@@ -11,9 +11,7 @@ const NAV_LINKS = [
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Pipeline', href: '#pipeline' },
   { name: 'Education', href: '#education' },
-  { name: 'Contact', href: '#contact' },
 ];
 
 export function Navbar() {
@@ -102,7 +100,7 @@ export function Navbar() {
 
             <a
               href={PERSONAL_INFO.resumeFile}
-              download="Anandhu-Chandran-DevOps.pdf"
+              download="Anandhu-DevOps-Engineer-Resume.pdf"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-slate-950 font-mono text-xs font-bold shadow-md shadow-cyan-950 transition-all hover:scale-[1.02]"
             >
               <FileDown className="h-3.5 w-3.5" />
@@ -114,7 +112,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 sm:hidden">
             <a
               href={PERSONAL_INFO.resumeFile}
-              download="Anandhu-Chandran-DevOps.pdf"
+              download="Anandhu-DevOps-Engineer-Resume.pdf"
               aria-label="Download Resume"
               className="p-2 rounded-xl bg-cyan-500 text-slate-950"
             >
@@ -139,7 +137,7 @@ export function Navbar() {
             <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-xs font-mono text-emerald-400">
               <span className="flex items-center gap-1.5">
                 <Sparkles className="h-3.5 w-3.5" />
-                DevOps Engineer &bull; 2+ Yrs Exp
+                DevOps Engineer &bull; Active Role
               </span>
               <span className="text-slate-500">Muziris Softech</span>
             </div>
@@ -158,7 +156,7 @@ export function Navbar() {
               ))}
             </nav>
 
-            <div className="pt-3 border-t border-slate-800/80 grid grid-cols-3 gap-2">
+            <div className="pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-2">
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
@@ -176,14 +174,6 @@ export function Navbar() {
               >
                 <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
                 <span>LinkedIn</span>
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-cyan-950/60 border border-cyan-500/40 text-xs font-mono text-cyan-300 hover:bg-cyan-900/60"
-              >
-                <Mail className="h-3.5 w-3.5" />
-                <span>Contact</span>
               </a>
             </div>
           </div>

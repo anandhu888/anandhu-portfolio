@@ -5,29 +5,59 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { SKILL_CATEGORIES } from '@/data/resume-data';
+import { TechIcon, hasTechIcon } from '@/components/ui/tech-icons';
 import { 
   GitBranch, 
   Box, 
-  Cpu, 
+  Settings2,
   Layers, 
   Terminal, 
   Activity, 
   Database, 
   Cloud,
+  Workflow,
+  Package,
+  MonitorCog,
+  Network,
+  MessageSquare,
+  BookOpen,
   Search,
-  CheckCircle2
+  CheckCircle2,
+  Code
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   GitBranch,
   Box,
-  Cpu,
+  Settings2,
   Layers,
   Terminal,
   Activity,
   Database,
   Cloud,
+  Workflow,
+  Package,
+  MonitorCog,
+  Network,
+  MessageSquare,
+  BookOpen,
 };
+
+function SkillTechIcon({ name }: { name: string }) {
+  if (hasTechIcon(name)) {
+    return (
+      <div className="h-5 w-5 rounded-md flex items-center justify-center shrink-0">
+        <TechIcon name={name} className="h-4 w-4" useBrandColor />
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-5 w-5 rounded-md bg-cyan-950/80 border border-cyan-500/30 text-[10px] text-cyan-300 flex items-center justify-center shrink-0">
+      <Code className="h-3 w-3 text-cyan-400" />
+    </div>
+  );
+}
 
 export function SkillsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -62,7 +92,7 @@ export function SkillsSection() {
         <SectionHeading
           badge="// 02. TECHNICAL_MATRIX"
           title="Skills, Tooling & Platforms"
-          description="Categorized technical competencies verified across 2+ years of production DevOps engineering."
+          description="Categorized technical competencies based strictly on professional experience at Muziris Softech (P) Ltd."
         />
 
         {/* Filter Controls Bar */}
@@ -80,7 +110,7 @@ export function SkillsSection() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 rounded-xl font-mono text-xs transition-all flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 rounded-xl font-mono text-xs transition-all flex items-center gap-1.5 cursor-pointer ${
                     isActive
                       ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm shadow-cyan-950/40 font-semibold'
                       : 'bg-slate-900/60 text-slate-400 border border-slate-800/80 hover:border-slate-700 hover:text-slate-200'
@@ -118,16 +148,16 @@ export function SkillsSection() {
             No technical skills found matching &quot;{searchQuery}&quot;. Clear search to view all.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredCategories.map((category) => {
               const IconComponent = ICON_MAP[category.iconName] || Terminal;
               return (
                 <Card
                   key={category.title}
-                  className="flex flex-col justify-between p-6"
+                  className="skill-reveal flex flex-col justify-between p-6 hover:-translate-y-1 transition-all duration-300"
                 >
                   <div>
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="skill-heading flex items-center gap-3 mb-3">
                       <div className="h-10 w-10 rounded-xl bg-slate-800/90 border border-slate-700/80 flex items-center justify-center text-cyan-400 shrink-0">
                         <IconComponent className="h-5 w-5" />
                       </div>
@@ -146,23 +176,24 @@ export function SkillsSection() {
                     </p>
                   </div>
 
-                  {/* Skills Pills List */}
-                  <div className="space-y-2.5 pt-3 border-t border-slate-800/70">
+                  {/* Skills Pills List with Technology Icons */}
+                  <div className="skill-items space-y-2 pt-3 border-t border-slate-800/70">
                     {category.skills.map((skill) => (
                       <div
                         key={skill.name}
                         className="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80 hover:border-slate-700 transition-colors"
                       >
                         <div className="flex items-center justify-between gap-2 mb-1">
-                          <span className="font-mono text-xs font-bold text-white">
-                            {skill.name}
+                          <span className="font-mono text-xs font-bold text-white flex items-center gap-2 truncate">
+                            <SkillTechIcon name={skill.name} />
+                            <span className="truncate">{skill.name}</span>
                           </span>
                           {skill.level && (
                             <Badge
                               size="sm"
                               dot
                               variant={
-                                skill.level === 'Production'
+                                skill.level === 'Hands-on'
                                   ? 'emerald'
                                   : skill.level === 'Basic'
                                   ? 'cyan'
@@ -174,7 +205,7 @@ export function SkillsSection() {
                           )}
                         </div>
                         {skill.description && (
-                          <p className="text-[11px] text-slate-400 font-sans leading-tight">
+                          <p className="text-[11px] text-slate-400 font-sans leading-tight pl-7">
                             {skill.description}
                           </p>
                         )}
@@ -193,7 +224,7 @@ export function SkillsSection() {
             <span className="text-slate-500 uppercase text-[11px] tracking-wider">Proficiency Legend:</span>
             <div className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
-              <span className="text-slate-300">Production (Daily Industry Deployment)</span>
+              <span className="text-slate-300">Hands-on Production</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-cyan-400"></span>
@@ -201,13 +232,13 @@ export function SkillsSection() {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-amber-400"></span>
-              <span className="text-slate-300">Continuous Practice &amp; Lab</span>
+              <span className="text-slate-300">Practice &amp; Learning</span>
             </div>
           </div>
 
           <div className="text-slate-500 text-[11px] flex items-center gap-1.5 shrink-0">
             <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-            <span>All skills mapped from resume source</span>
+            <span>Resume source of truth verified</span>
           </div>
         </div>
       </div>

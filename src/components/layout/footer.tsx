@@ -25,7 +25,7 @@ export function Footer() {
             </div>
 
             <p className="text-slate-400 text-xs sm:text-sm font-sans max-w-md leading-relaxed">
-              Specialized in Jenkins CI/CD automation, Docker containerization, Ansible configuration management, and Linux production operations.
+              Specialized in Jenkins and GitHub Actions CI/CD automation, Docker containerization, Ansible configuration management, and Linux production operations.
             </p>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-emerald-400">
@@ -58,11 +58,6 @@ export function Footer() {
               <li>
                 <a href="#projects" className="hover:text-cyan-400 transition-colors">
                   &bull; /devops-systems
-                </a>
-              </li>
-              <li>
-                <a href="#pipeline" className="hover:text-cyan-400 transition-colors">
-                  &bull; /pipeline-topology
                 </a>
               </li>
               <li>

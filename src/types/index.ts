@@ -9,7 +9,6 @@ export interface ExperienceItem {
   type: string;
   responsibilities: string[];
   technologies: string[];
-  metrics?: { label: string; value: string }[];
 }
 
 export interface SkillCategory {
@@ -28,10 +27,8 @@ export interface ProjectItem {
   title: string;
   category: string;
   description: string;
-  impact: string;
   technologies: string[];
   highlights: string[];
-  architectureStage: 'CI/CD' | 'IaC & Config' | 'Observability' | 'Database' | 'Containers';
 }
 
 export interface EducationItem {
@@ -41,13 +38,4 @@ export interface EducationItem {
   field?: string;
   period: string;
   location?: string;
-}
-
-export interface PipelineStage {
-  id: string;
-  step: string;
-  name: string;
-  tools: string[];
-  description: string;
-  color: string;
 }

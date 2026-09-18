@@ -3,21 +3,21 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { EDUCATION } from '@/data/resume-data';
-import { GraduationCap, BookOpen, Calendar, MapPin, Sparkles, ShieldCheck } from 'lucide-react';
+import { GraduationCap, BookOpen, Calendar, MapPin } from 'lucide-react';
 
 export function EducationSection() {
   return (
     <section id="education" className="py-24 bg-slate-950/70 border-t border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
-          badge="// 06. ACADEMIC_CREDENTIALS"
+          badge="// 05. ACADEMIC_CREDENTIALS"
           title="Education & Technical Qualifications"
           description="Academic foundation in Computer Science & Engineering combined with active ongoing cloud infrastructure practice."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
           {/* Card 1: B.Tech Degree */}
-          <Card className="p-7 flex flex-col justify-between">
+          <Card className="education-reveal p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="h-12 w-12 rounded-xl bg-cyan-950/90 border border-cyan-500/40 flex items-center justify-center text-cyan-400">
@@ -53,7 +53,7 @@ export function EducationSection() {
           </Card>
 
           {/* Card 2: Higher Secondary */}
-          <Card className="p-7 flex flex-col justify-between">
+          <Card className="education-reveal p-7 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="h-12 w-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300">
@@ -88,38 +88,6 @@ export function EducationSection() {
             </div>
           </Card>
 
-          {/* Card 3: Continuous Infrastructure Practice */}
-          <Card className="p-7 flex flex-col justify-between border-dashed border-cyan-500/30 bg-slate-900/40">
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="h-12 w-12 rounded-xl bg-emerald-950/90 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
-                  <Sparkles className="h-6 w-6" />
-                </div>
-                <Badge variant="emerald" dot size="sm">
-                  Skills Expansion
-                </Badge>
-              </div>
-
-              <h3 className="text-lg font-bold text-white font-sans mb-1">
-                Continuous Infrastructure Practice
-              </h3>
-              <div className="text-emerald-400 text-xs font-mono mb-3">
-                Hands-on Labs &amp; Cloud Sandbox
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
-                Actively practicing Terraform Infrastructure-as-Code for AWS environments (EC2, S3) and Kubernetes container orchestration principles.
-              </p>
-            </div>
-
-            <div className="pt-4 mt-6 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span className="flex items-center gap-1 text-emerald-400 font-semibold">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                Resume Source of Truth
-              </span>
-              <span>Zero Fake Certs</span>
-            </div>
-          </Card>
         </div>
       </div>
     </section>

@@ -3,100 +3,84 @@ import { SectionHeading } from '@/components/ui/section-heading';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { PROJECTS } from '@/data/resume-data';
-import { Check, Zap, ShieldCheck } from 'lucide-react';
+import { TechIcon, hasTechIcon } from '@/components/ui/tech-icons';
+import { Check, ShieldCheck, Server } from 'lucide-react';
 
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-24 bg-slate-950/80 border-t border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
-          badge="// 04. PRODUCTION_SYSTEMS"
-          title="Featured DevOps Implementations"
-          description="Real-world engineering initiatives and automated delivery architectures executed across 2+ years of professional industry practice."
+          badge="// 04. PROFESSIONAL_IMPLEMENTATIONS"
+          title="Professional Implementations"
+          description="Resume-supported DevOps automation, delivery, and observability work at Muziris Softech (P) Ltd."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {PROJECTS.map((project) => (
             <Card
               key={project.id}
-              className="flex flex-col justify-between p-7"
+              className="project-reveal p-6 sm:p-7 hover:border-cyan-500/40 transition-all duration-300"
             >
-              <div>
-                {/* Header: Stage Badge & Category */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <Badge variant="cyan" dot size="sm">
-                    {project.architectureStage}
-                  </Badge>
-                  <span className="text-[11px] font-mono text-slate-400">
-                    {project.category}
-                  </span>
-                </div>
+              <div className="flex items-center gap-2.5 mb-5 pb-4 border-b border-slate-800">
+                <Badge variant="cyan" dot size="sm">Professional Work</Badge>
+                <span className="text-[11px] font-mono text-cyan-300 flex items-center gap-1.5 min-w-0">
+                  <Server className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                  <span className="truncate">{project.category}</span>
+                </span>
+              </div>
 
-                {/* Project Title */}
-                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight mb-3">
+              {/* Title & Description */}
+              <div className="project-details space-y-3 mb-6">
+                <h3 className="project-title text-xl sm:text-2xl font-bold text-white font-sans tracking-tight">
                   {project.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed mb-5">
+                <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
                   {project.description}
                 </p>
+              </div>
 
-                {/* Outcome / Impact Banner */}
-                <div className="p-3.5 rounded-xl bg-emerald-950/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-start gap-2.5 mb-5 shadow-xs shadow-emerald-950/40">
-                  <Zap className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-emerald-200">Verified Impact: </span>
-                    <span className="text-emerald-300/90">{project.impact}</span>
-                  </div>
+              <div className="space-y-3 mb-6">
+                <div className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-1.5">
+                  <ShieldCheck className="h-4 w-4 text-cyan-400" />
+                  <span>Implementation scope</span>
                 </div>
-
-                {/* Key Deliverables List */}
-                <div className="space-y-2 mb-6">
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-semibold">
-                    Key Deliverables &amp; Architectural Highlights:
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-slate-300 font-sans">
-                    {project.highlights.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <Check className="h-3.5 w-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="space-y-2">
+                  {project.highlights.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3"
+                    >
+                      <Check className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <span className="text-xs text-slate-300 font-sans leading-relaxed">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Technologies Badges */}
-              <div className="pt-4 border-t border-slate-800/80">
-                <div className="flex flex-wrap gap-1.5">
+              {/* Technologies Badges with Icons */}
+              <div className="project-tags pt-6 border-t border-slate-800/80">
+                <div className="text-[11px] font-mono text-slate-400 mb-3">
+                  Technologies &amp; Integrations Used:
+                </div>
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300"
+                      className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300 hover:border-cyan-500/40 transition-colors inline-flex items-center gap-1.5"
                     >
-                      {tech}
+                      {hasTechIcon(tech) && (
+                        <TechIcon name={tech} className="h-3.5 w-3.5 shrink-0" useBrandColor />
+                      )}
+                      <span>{tech}</span>
                     </span>
                   ))}
                 </div>
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* Bottom Banner */}
-        <div className="mt-12 p-5 rounded-2xl glass-panel flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-cyan-400 shrink-0" />
-            <span>All implementations directly derived from production work at Muziris Softech (P) Ltd.</span>
-          </div>
-          <a
-            href="#contact"
-            className="text-cyan-300 hover:text-cyan-200 font-semibold flex items-center gap-1 shrink-0"
-          >
-            <span>Inquire about these architectures</span>
-            <span>&rarr;</span>
-          </a>
         </div>
       </div>
     </section>

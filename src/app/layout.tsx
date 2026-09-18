@@ -1,19 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { PERSONAL_INFO } from '@/data/resume-data';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export const viewport: Viewport = {
   themeColor: '#090d16',
@@ -26,12 +13,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://anandhu-chandran.dev'),
   title: `${PERSONAL_INFO.name} | DevOps Engineer | CI/CD & Cloud Infrastructure`,
   description:
-    'Official portfolio of Anandhu Chandran, DevOps Engineer with 2+ years of experience in CI/CD automation (Jenkins), containerization (Docker, Kubernetes), configuration management (Ansible), and Linux environments.',
+    'Portfolio of Anandhu Chandran, a hands-on DevOps Engineer specializing in CI/CD and deployment automation, Docker, Ansible, Linux, and AWS.',
   keywords: [
     'Anandhu Chandran',
     'DevOps Engineer',
     'CI/CD Pipeline',
     'Jenkins',
+    'GitHub Actions',
+    'Self-Hosted Runners',
     'Docker',
     'Kubernetes',
     'Ansible',
@@ -42,6 +31,7 @@ export const metadata: Metadata = {
     'ELK Stack',
     'Liquibase',
     'JFrog Artifactory',
+    'Slack Integration',
     'Software Version Control',
   ],
   authors: [{ name: PERSONAL_INFO.name, url: PERSONAL_INFO.linkedin }],
@@ -56,7 +46,7 @@ export const metadata: Metadata = {
     url: 'https://anandhu-chandran.dev',
     title: `${PERSONAL_INFO.name} | DevOps Engineer`,
     description:
-      'Results-driven DevOps Engineer with 2+ years of experience in CI/CD automation, containerization, and infrastructure management within Linux environments.',
+      'Hands-on DevOps Engineer focused on CI/CD and deployment automation, containerization, infrastructure automation, and Linux operations.',
     siteName: `${PERSONAL_INFO.name} - DevOps Portfolio`,
   },
   twitter: {
@@ -104,6 +94,8 @@ export default function RootLayout({
       'DevOps',
       'CI/CD Automation',
       'Jenkins',
+      'GitHub Actions',
+      'Self-Hosted Runners',
       'Docker',
       'Kubernetes',
       'Ansible',
@@ -113,6 +105,7 @@ export default function RootLayout({
       'ELK Stack',
       'Grafana',
       'Liquibase',
+      'Slack',
     ],
   };
 
@@ -125,7 +118,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-[#090d16] text-slate-100 min-h-screen antialiased selection:bg-cyan-500/20 selection:text-cyan-300`}
+        className="font-sans bg-[#090d16] text-slate-100 min-h-screen antialiased selection:bg-cyan-500/20 selection:text-cyan-300"
       >
         {children}
       </body>

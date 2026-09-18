@@ -2,23 +2,17 @@
 
 A modern, high-performance, and responsive portfolio website designed specifically for **Anandhu Chandran**, DevOps Engineer. Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS**, with a cloud/infrastructure dark command center aesthetic.
 
-> **Source of Truth**: All work experience, responsibilities, quantifiable impact metrics, dates, companies, education, and technical skills reflect [Anandhu-DevOps.pdf](./Anandhu-DevOps.pdf) with **zero invented information**.
+> **Source of Truth**: All work experience, responsibilities, dates, companies, education, and technical skills reflect [Anandhu-DevOps-Engineer-Resume.pdf](./public/Anandhu-DevOps-Engineer-Resume.pdf) with **zero invented information**.
 
 ---
 
 ## ⚡ Live Features
 
 - **DevOps Command Center Aesthetic**: Deep slate dark theme with cyan & emerald telemetry accents and monospace typography.
-- **Interactive Terminal Widget**: Live simulated deployment pipeline (`pipeline.sh`, `ansible.yml`, `telemetry.log`).
-- **Quantifiable Engineering Metrics**:
-  - **40% Reduction** in deployment time via Jenkins automation.
-  - **60% Reduction** in configuration errors via Ansible.
-  - **2+ Years** of professional DevOps & Linux production experience.
-- **Interactive DevOps Pipeline Flow**: 6-stage lifecycle visualization from Git version control to Grafana/ELK observability.
-- **Git-Commit Career Timeline**: Visual commit log of roles at Muziris Softech (P) Ltd.
-- **Interactive Technical Skills Matrix**: Filterable domain categories with proficiency status badges.
-- **Featured DevOps Implementations**: Production systems covering CI/CD, IaC, Observability, Database versioning, and Containers.
-- **One-Click Contact & Resume Download**: Built-in 1-click email/phone copy-to-clipboard, mail client dispatcher, and direct PDF resume download.
+- **Git-Commit Career Timeline**: Visual timeline of DevOps roles at Muziris Softech (P) Ltd.
+- **Interactive Technical Skills Matrix**: Categorized domain groups with small recognizable technology logos.
+- **Core Technology Quick-Scanner**: Prominent technology icon grid for rapid recruiter review.
+- **DevOps Automation & CI/CD**: Genuine production implementations covering CI/CD, target runner deployments, IaC, observability, and containerization.
 - **Full SEO & Structured Data**: Dynamic `sitemap.xml`, `robots.txt`, Open Graph cards, and Schema.org `Person` JSON-LD.
 - **Automated CI/CD Workflows**: Ready-to-use GitHub Actions for linting, type-checking, and build validation.
 
@@ -110,7 +104,7 @@ anandhu-portfolio/
 │       ├── ci.yml                 # Lint, Type-check, and Build validation
 │       └── deploy.yml             # CD deployment gate
 ├── public/
-│   ├── Anandhu-DevOps.pdf         # Official downloadable resume PDF
+│   ├── Anandhu-DevOps-Engineer-Resume.pdf # Official downloadable resume PDF
 │   └── ...
 ├── src/
 │   ├── app/
@@ -124,25 +118,22 @@ anandhu-portfolio/
 │   │   │   ├── navbar.tsx         # Sticky navigation with status indicator
 │   │   │   └── footer.tsx         # Engineering footer with links & status
 │   │   ├── sections/
-│   │   │   ├── hero.tsx           # Command center hero with live CTA
-│   │   │   ├── stats.tsx          # Key impact metrics (-40% time, -60% errors)
+│   │   │   ├── hero.tsx           # Command center hero with live CTA & tech scanner
 │   │   │   ├── about.tsx          # Professional summary & engineering specs
-│   │   │   ├── skills.tsx         # Categorized skills matrix with filters
+│   │   │   ├── skills.tsx         # Categorized skills matrix with tech logos & filters
 │   │   │   ├── experience.tsx     # Git-commit timeline at Muziris Softech
-│   │   │   ├── projects.tsx       # Production DevOps engineering implementations
-│   │   │   ├── pipeline.tsx       # Interactive 6-stage DevOps lifecycle
+│   │   │   ├── projects.tsx       # DevOps Automation & CI/CD professional work
 │   │   │   ├── education.tsx      # Formal B.Tech & Higher Secondary education
-│   │   │   └── contact.tsx        # Email/Phone copy, mailer, resume download
 │   │   └── ui/
 │   │       ├── badge.tsx          # Reusable status badge
 │   │       ├── card.tsx           # Glassmorphic card container
 │   │       ├── section-heading.tsx# Uniform section header
-│   │       └── terminal-widget.tsx# Interactive multi-tab terminal
+│   │       ├── tech-icons.tsx     # Crisp, offline-ready technology SVG icons
+│   │       └── social-icons.tsx   # Social link SVG icons
 │   ├── data/
 │   │   └── resume-data.ts         # Single source of truth from resume.pdf
 │   └── types/
 │       └── index.ts               # Strict TypeScript interfaces
-├── Anandhu-DevOps.pdf             # Original source resume
 ├── package.json
 ├── tsconfig.json
 └── README.md

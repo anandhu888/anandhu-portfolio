@@ -4,7 +4,7 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   hoverEffect?: boolean;
-  variant?: 'default' | 'glass' | 'gradient' | 'subtle';
+  variant?: 'default' | 'glass' | 'subtle';
 }
 
 export function Card({
@@ -16,7 +16,6 @@ export function Card({
   const variantStyles = {
     glass: 'glass-panel',
     default: 'bg-slate-900/80 border border-slate-800/80',
-    gradient: 'gradient-border',
     subtle: 'bg-slate-950/60 border border-slate-800/60',
   }[variant];
 
